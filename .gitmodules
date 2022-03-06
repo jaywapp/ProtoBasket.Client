@@ -1,0 +1,3 @@
+[submodule "Modules/ProtoBasket.Common.Model"]
+	path = Modules/ProtoBasket.Common.Model
+	url = git@github.com:jaywapp/ProtoBasket.Common.Model.git
