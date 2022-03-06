@@ -1,8 +1,6 @@
 ﻿using ProtoBasket.Client.Models.Interface;
-using ProtoBasket.Common.Model;
 using ProtoBasket.Common.Model.Model.Interface;
 using ReactiveUI;
-using System;
 
 namespace ProtoBasket.Client.Models.Item
 {
@@ -15,12 +13,8 @@ namespace ProtoBasket.Client.Models.Item
         private int _year;
         private int _protoNo;
         private int _matchNo;
-        private DateTime _startTime;
-        private string _contest;
-        private eMatchCategory _category;
-        private string _homeTeam;
-        private string _awayTeam;
-        private ScoreItem _score;
+
+        private GameItem _game;
         private AllocationItem _allocation;
         #endregion
 
@@ -60,54 +54,25 @@ namespace ProtoBasket.Client.Models.Item
             set => this.RaiseAndSetIfChanged(ref _matchNo, value);
         }
 
+
         /// <inheritdoc />
-        public DateTime StartTime
+        public GameItem GameItem
         {
-            get => _startTime;
-            set => this.RaiseAndSetIfChanged(ref _startTime, value);
+            get => _game;
+            set => this.RaiseAndSetIfChanged(ref _game, value);
         }
 
         /// <inheritdoc />
-        public string Contest
-        {
-            get => _contest;
-            set => this.RaiseAndSetIfChanged(ref _contest, value);
-        }
-
-        /// <inheritdoc />
-        public eMatchCategory Category
-        {
-            get => _category;
-            set => this.RaiseAndSetIfChanged(ref _category, value);
-        }
-
-        /// <inheritdoc />
-        public string HomeTeam
-        {
-            get => _homeTeam;
-            set => this.RaiseAndSetIfChanged(ref _homeTeam, value);
-        }
-
-        /// <inheritdoc />
-        public string AwayTeam
-        {
-            get => _awayTeam;
-            set => this.RaiseAndSetIfChanged(ref _awayTeam, value);
-        }
-
-        /// <inheritdoc />
-        public ScoreItem Score
-        {
-            get => _score;
-            set => this.RaiseAndSetIfChanged(ref _score, value);
-        }
-
-        /// <inheritdoc />
-        public AllocationItem Allocation
+        public AllocationItem AllocationItem
         {
             get => _allocation;
             set => this.RaiseAndSetIfChanged(ref _allocation, value);
+
+
         }
+        public IGame Game => GameItem;
+
+        public IAllocation Allocation => AllocationItem;
         #endregion
 
         #region Constructor
@@ -123,11 +88,8 @@ namespace ProtoBasket.Client.Models.Item
             Year = match.Year;
             ProtoNo = match.ProtoNo;
             MatchNo = match.MatchNo;
-            StartTime = match.StartTime;
-            Contest = match.Contest;
-            Category = match.Category;
-            HomeTeam = match.HomeTeam;
-            AwayTeam = match.AwayTeam;
+            GameItem = new GameItem(match.Game);
+            AllocationItem = new AllocationItem(match.Allocation);
         }
         #endregion
     }

@@ -3,7 +3,7 @@ using ReactiveUI;
 
 namespace ProtoBasket.Client.Models.Item
 {
-    public class ScoreItem : ReactiveObject, IScore
+    public class ScoreItem : ReactiveObject, IScorable
     {
         #region Internal Field
         private double _home;
@@ -12,14 +12,14 @@ namespace ProtoBasket.Client.Models.Item
 
         #region Properties
         /// <inheritdoc />
-        public double Home
+        public double HomeScore
         {
             get => _home;
             set => this.RaiseAndSetIfChanged(ref _home, value);
         }
 
         /// <inheritdoc />
-        public double Away
+        public double AwayScore
         {
             get => _away;
             set => this.RaiseAndSetIfChanged(ref _away, value);
@@ -33,10 +33,10 @@ namespace ProtoBasket.Client.Models.Item
             // TODO : Event Control
         }
 
-        public ScoreItem(IScore score) : this()
+        public ScoreItem(IScorable score) : this()
         {
-            Home = score.Home;
-            Away = score.Away;
+            HomeScore = score.HomeScore;
+            AwayScore = score.AwayScore;
         }
         #endregion
     }

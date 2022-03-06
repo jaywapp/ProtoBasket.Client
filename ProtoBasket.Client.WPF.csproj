@@ -108,6 +108,7 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="MainWindowModel.cs" />
     <Compile Include="Models\Interface\ICheckable.cs" />
+    <Compile Include="Models\Item\GameItem.cs" />
     <Compile Include="Models\Item\HandicapMatchItem.cs" />
     <Compile Include="Models\Item\UnderOverMatchItem.cs" />
     <Compile Include="View\ProtoTableView.xaml.cs">
@@ -165,6 +166,10 @@
     <ProjectReference Include="Modules\ProtoBasket.Common.Model\ProtoBasket.Common.Model.csproj">
       <Project>{9C684400-391A-49C8-9953-C18F15596F95}</Project>
       <Name>ProtoBasket.Common.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="Modules\ProtoBasket.Crawler\ProtoBasket.Server.Crawler.csproj">
+      <Project>{8850FF70-87BF-4359-8916-7DAE69422C60}</Project>
+      <Name>ProtoBasket.Server.Crawler</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
