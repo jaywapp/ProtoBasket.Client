@@ -1,4 +1,4 @@
-﻿namespace Betman.Client.Models.Interface
+﻿namespace ProtoBasket.Client.Models.Interface
 {
     public interface ICheckable
     {

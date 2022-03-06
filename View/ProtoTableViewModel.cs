@@ -1,8 +1,8 @@
-﻿using Betman.Client.Models.Item;
+﻿using ProtoBasket.Client.Models.Item;
 using ReactiveUI;
 using System.Collections.ObjectModel;
 
-namespace Betman.Client.View
+namespace ProtoBasket.Client.View
 {
     public class ProtoTableViewModel : ReactiveObject
     {

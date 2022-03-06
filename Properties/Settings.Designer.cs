@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Betman.Client.Properties
+namespace ProtoBasket.Client.Properties
 {
 
 

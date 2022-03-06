@@ -105,6 +105,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="MainWindowModel.cs" />
     <Compile Include="Models\Interface\ICheckable.cs" />
     <Compile Include="Models\Item\HandicapMatchItem.cs" />
     <Compile Include="Models\Item\UnderOverMatchItem.cs" />
@@ -164,6 +166,9 @@
       <Project>{9C684400-391A-49C8-9953-C18F15596F95}</Project>
       <Name>ProtoBasket.Common.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Service\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

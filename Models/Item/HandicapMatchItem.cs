@@ -1,7 +1,7 @@
 ﻿using ProtoBasket.Common.Model.Model.Interface;
 using ReactiveUI;
 
-namespace Betman.Client.Models.Item
+namespace ProtoBasket.Client.Models.Item
 {
     public class HandicapMatchItem : MatchItem, IHandicapMatch
     {

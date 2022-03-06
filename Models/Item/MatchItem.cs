@@ -1,10 +1,10 @@
-﻿using Betman.Client.Models.Interface;
+﻿using ProtoBasket.Client.Models.Interface;
 using ProtoBasket.Common.Model;
 using ProtoBasket.Common.Model.Model.Interface;
 using ReactiveUI;
 using System;
 
-namespace Betman.Client.Models.Item
+namespace ProtoBasket.Client.Models.Item
 {
     public class MatchItem : ReactiveObject, IMatch, ICheckable
     {
