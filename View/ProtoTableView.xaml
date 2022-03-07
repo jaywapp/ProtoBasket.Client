@@ -4,11 +4,48 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProtoBasket.Client.View"
-             xmlns:prism="http://prismlibrary.com/"
-             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:prism="http://prismlibrary.com/" xmlns:filterdatagrid="http://filterdatagrid.control.com/2021"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             Height="450" Width="750">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid  
+            AutoGenerateColumns="False"
+            ItemsSource="{Binding MatchItems, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            SelectedItem="{Binding SelectedMatch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Width="Auto" Header="구분" 
+                                        Binding="{Binding IsChecked}"/>
+                <DataGridTextColumn Width="Auto" Header="번호" 
+                                    Binding="{Binding MatchNo}"/>
+                <DataGridTextColumn MinWidth="100" Width="Auto" Header="시간" 
+                                    Binding="{Binding GameItem.Time}"/>
+                <DataGridTextColumn MinWidth="100" Width="Auto" Header="대회" 
+                                    Binding="{Binding GameItem.Contest}"/>
+                <DataGridTextColumn MinWidth="100" Width="Auto" Header="유형" 
+                                    Binding="{Binding MatchType}"/>
+                <DataGridTextColumn MinWidth="100" Width="Auto" Header="유형값" 
+                                    Binding="{Binding TypeValue}"/>
+                <DataGridTextColumn MinWidth="100" Width="Auto" Header="홈" 
+                                    Binding="{Binding GameItem.HomeTeam}"/>
+                <DataGridTextColumn MinWidth="100" Width="Auto" Header="어웨이" 
+                                    Binding="{Binding GameItem.AwayTeam}"/>
+                <DataGridTextColumn Width="Auto" Header="홈 (점수)" 
+                                    Binding="{Binding GameItem.HomeScore}"/>
+                <DataGridTextColumn Width="Auto" Header="어웨이 (점수)"  
+                                    Binding="{Binding GameItem.AwayScore}"/>
+                <DataGridTextColumn Width="Auto" Header="승" Binding="{Binding AllocationItem.Win}"/>
+                <DataGridTextColumn Width="Auto" Header="무" Binding="{Binding AllocationItem.Draw}"/>
+                <DataGridTextColumn Width="Auto" Header="패"  Binding="{Binding AllocationItem.Lose}"/>
+            </DataGrid.Columns>
+        </DataGrid>
             
     </Grid>
 </UserControl>

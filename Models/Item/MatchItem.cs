@@ -1,4 +1,5 @@
-﻿using ProtoBasket.Client.Models.Interface;
+﻿using Betman.Client;
+using ProtoBasket.Client.Models.Interface;
 using ProtoBasket.Common.Model.Model.Interface;
 using ReactiveUI;
 
@@ -14,11 +15,26 @@ namespace ProtoBasket.Client.Models.Item
         private int _protoNo;
         private int _matchNo;
 
+        private eMatchType _matchType;
+        private double _typeValue;
+
         private GameItem _game;
         private AllocationItem _allocation;
         #endregion
 
         #region Properties
+        public eMatchType MatchType
+        {
+            get => _matchType;
+            set => this.RaiseAndSetIfChanged(ref _matchType, value);
+        }
+
+        public double TypeValue
+        {
+            get => _typeValue;
+            set => this.RaiseAndSetIfChanged(ref _typeValue, value);
+        }
+
         /// <inheritdoc />
         public bool IsChecked
         {
@@ -67,9 +83,8 @@ namespace ProtoBasket.Client.Models.Item
         {
             get => _allocation;
             set => this.RaiseAndSetIfChanged(ref _allocation, value);
-
-
         }
+
         public IGame Game => GameItem;
 
         public IAllocation Allocation => AllocationItem;
@@ -90,6 +105,18 @@ namespace ProtoBasket.Client.Models.Item
             MatchNo = match.MatchNo;
             GameItem = new GameItem(match.Game);
             AllocationItem = new AllocationItem(match.Allocation);
+        }
+
+        public MatchItem(IHandicapMatch match) : this(match as IMatch)
+        {
+            MatchType = eMatchType.Handicap;
+            TypeValue = match.Handicap.Value;
+        }
+
+        public MatchItem(IUnderOverMatch match) : this(match as IMatch)
+        {
+            MatchType = eMatchType.UnderOver;
+            TypeValue = match.UnderOver.Value;
         }
         #endregion
     }
